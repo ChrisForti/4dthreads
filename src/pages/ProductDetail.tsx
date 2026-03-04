@@ -66,7 +66,7 @@ export default function ProductDetail() {
                   Performance Apparel
                 </span>
                 <h1 className="text-2xl font-bold text-gray-900 mt-1">
-                  UPF 50+ Long-Sleeve Shirt
+                  pod-template
                 </h1>
               </div>
 

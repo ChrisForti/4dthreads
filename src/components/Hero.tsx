@@ -8,10 +8,7 @@ export default function Hero() {
             {/* Left: Content */}
             <div className="p-8 md:p-12">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Premium Yacht Merch
-                <span className="block text-primary-600 mt-2">
-                  Customized for Your Crew
-                </span>
+                pod-template
               </h1>
               <p className="text-lg text-gray-600 mb-8">
                 High-performance apparel designed for sport fishing
@@ -31,8 +28,18 @@ export default function Hero() {
             {/* Right: Image */}
             <div className="relative h-64 md:h-full min-h-100 bg-linear-to-br from-primary-100 to-primary-50">
               <div className="absolute inset-0 flex items-center justify-center">
-                <svg className="w-64 h-64 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                <svg
+                  className="w-64 h-64 text-primary-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1}
+                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                  />
                 </svg>
               </div>
             </div>
