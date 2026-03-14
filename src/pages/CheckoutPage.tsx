@@ -10,7 +10,8 @@ export default function CheckoutPage() {
         <div className="bg-white rounded-2xl shadow-sm p-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Checkout</h1>
           <p className="text-gray-600 mb-8">
-            Checkout form shell is in place. Form validation and payload wiring are planned in Phase 4.
+            Checkout form shell is in place. Form validation and payload wiring
+            are planned in Phase 4.
           </p>
 
           <form className="grid gap-4 md:grid-cols-2">

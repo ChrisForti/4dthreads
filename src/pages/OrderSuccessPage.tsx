@@ -9,13 +9,26 @@ export default function OrderSuccessPage() {
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-2xl shadow-sm p-8 text-center">
           <div className="w-14 h-14 rounded-full bg-green-100 text-green-600 mx-auto mb-4 flex items-center justify-center">
-            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <svg
+              className="w-8 h-8"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Order Confirmed</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Order Confirmed
+          </h1>
           <p className="text-gray-600 mb-8">
-            Success route is ready. It will be populated with real order details in Phase 4.
+            Success route is ready. It will be populated with real order details
+            in Phase 4.
           </p>
           <Link
             to="/"
