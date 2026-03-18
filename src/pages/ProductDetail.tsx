@@ -34,6 +34,13 @@ export default function ProductDetail() {
     setFetchError(null);
     setLoading(true);
 
+    // Reset customization state so user-entered values from a previous product
+    // don't carry over when navigating to a different product on the same route.
+    setBoatName("");
+    setTemplateId("classic-text");
+    setLogoFile(null);
+    setLogoPreviewUrl(null);
+
     const numericId = Number(id);
     if (!numericId) {
       setNotFound(true);
@@ -190,7 +197,14 @@ export default function ProductDetail() {
       image: product.image,
       unitPrice: displayPrice,
       quantity: 1,
-      customization: boatName ? { boatName, templateId } : undefined,
+      customization:
+        boatName || logoPreviewUrl || templateId !== "classic-text"
+          ? {
+              boatName: boatName || undefined,
+              templateId,
+              logoUrl: logoPreviewUrl ?? undefined,
+            }
+          : undefined,
     });
     navigate("/cart");
   };
@@ -235,7 +249,8 @@ export default function ProductDetail() {
                     {logoPreviewUrl && (
                       <img
                         src={logoPreviewUrl}
-                        alt="Logo overlay"
+                        alt=""
+                        aria-hidden="true"
                         className="absolute top-4 left-4 w-20 h-20 object-contain drop-shadow-lg"
                       />
                     )}
@@ -447,7 +462,7 @@ export default function ProductDetail() {
                         className="w-12 h-12 object-contain rounded"
                       />
                       <div className="text-left">
-                        <p className="text-sm font-medium text-gray-800 truncate max-w-[160px]">
+                        <p className="text-sm font-medium text-gray-800 truncate max-w-40">
                           {logoFile.name}
                         </p>
                         <button
