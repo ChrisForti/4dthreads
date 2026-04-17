@@ -1,8 +1,7 @@
-# POD Template — Print on Demand Merch Store
+# 4dthreads — Print on Demand Merch Store
 
-A mock-first React storefront template for print-on-demand merchandise.
-Ships fully functional with mock data and deploys to GitHub Pages out of the box.
-Clone it to wire in a real backend, Printful, and Stripe.
+Custom apparel storefront built on React + TypeScript + Vite, deployed via Railway + GitHub.
+Connects to a Printful backend proxy for live catalog, mockup generation, and order fulfillment.
 
 ## Tech Stack
 
@@ -47,7 +46,7 @@ npm install
 npm run dev
 ```
 
-No `.env` file needed — the template runs entirely on mock data.
+Set `VITE_USE_MOCK_CATALOG=true` to run on mock data without a backend.
 
 ## Environment Variables
 
@@ -57,26 +56,26 @@ Copy `.env.example` to `.env` when connecting to a real backend:
 cp .env.example .env
 ```
 
-| Variable                 | Purpose                                    |
-| ------------------------ | ------------------------------------------ |
-| `VITE_API_BASE_URL`      | Backend/proxy base URL                     |
-| `VITE_APP_ENV`           | `development` / `staging` / `production`   |
-| `VITE_PRINTFUL_STORE_ID` | Printful store ID (cloned store only)      |
-| `VITE_STRIPE_PUBLIC_KEY` | Stripe publishable key (cloned store only) |
+| Variable                 | Purpose                                  |
+| ------------------------ | ---------------------------------------- |
+| `VITE_API_BASE_URL`      | Backend/proxy base URL                   |
+| `VITE_APP_ENV`           | `development` / `staging` / `production` |
+| `VITE_PRINTFUL_STORE_ID` | Printful store ID                        |
+| `VITE_STRIPE_PUBLIC_KEY` | Stripe publishable key                   |
 
-## Wiring Up the Real Store
+## Integration Points
 
-Search for `// WIRE-UP:` comments across `src/` — each one marks an exact integration point with instructions:
+Search for `// WIRE-UP:` comments across `src/` to find every backend connection point:
 
 ```bash
 grep -r "WIRE-UP" src/
 ```
 
-Key swap points:
+Key env flags:
 
-- `src/components/FeaturedProducts.tsx` and `src/pages/ProductDetail.tsx` — change import from `mockCatalogService` → `apiCatalogService`
-- `src/services/orderService.ts` — set `VITE_USE_MOCK_ORDER=false` to hit real API
-- `src/config/env.ts` — upgrade `apiBaseUrl` to a required check for production
+- `VITE_USE_MOCK_CATALOG=false` — switches catalog to live Printful data via backend proxy
+- `VITE_USE_MOCK_ORDER=false` — switches order submission to real API
+- `VITE_API_BASE_URL` — Railway backend URL
 
 ## Deployment
 

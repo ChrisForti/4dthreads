@@ -88,7 +88,17 @@ export default function ProductDetail() {
     };
   }, [logoPreviewUrl]);
 
-  const variants = product?.variants ?? [];
+  // Printful sync variant names follow "Color / Size" — parse into fields
+  // when the backend omits them so the selectors always have usable values.
+  const variants = (product?.variants ?? []).map((v) => {
+    if (v.size || v.color) return v;
+    const parts = v.name.split(" / ");
+    return {
+      ...v,
+      color: parts.length >= 2 ? parts[0].trim() : v.color,
+      size: parts.length >= 2 ? parts[parts.length - 1].trim() : v.size,
+    };
+  });
 
   const sizes = useMemo(
     () => [...new Set(variants.map((v) => v.size))],
